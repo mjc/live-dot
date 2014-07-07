@@ -13,7 +13,9 @@ var config = {
 
 	paths: {
 		jquery: prefix + 'jquery/2.1.1/jquery.min',
-		ace: '//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/'
+		d3: 'http://d3js.org/d3.v3.min.js',
+		'dagre-d3': 'http://cpettitt.github.io/project/dagre-d3/latest/dagre-d3.min.js',
+		ace: 'ace/lib/ace'
 	}
 };
 
