@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Live DOT</title>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+	<style>
+		body, html { height: 100% }
+	</style>
+</head>
+<body>
+<script>
+	require(['config'], function(config)
+	{
+		require.config(config);
+		require(['main'], function(LiveDOT)
+		{
+			var v = new LiveDOT();
+			v.init(document.getElementById('body'));
+		});
+	});
+</script>
+</body>
+</html>
