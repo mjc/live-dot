@@ -3,12 +3,55 @@
 <head>
 	<meta charset="utf-8">
 	<title>Live DOT</title>
+	<script src="http://d3js.org/d3.v3.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
 	<style>
-		body, html { height: 100% }
+		body, html { height: 100%; margin: 0; }
+		#editor
+		{
+			height: 100%;
+			width: 50%;
+			float: left;
+		}
+		#view
+		{
+			height: 100%;
+			width: 50%;
+			float: right;
+
+			svg
+			{
+				width: 100%;
+				height: 100%;
+			}
+		}
+	</style>
+
+	<style>
+		svg {
+		    overflow: hidden;
+		}
+
+		.node rect {
+		    stroke: #333;
+		    stroke-width: 1.5px;
+		    fill: #fff;
+		}
+
+		.edgeLabel rect {
+		    fill: #fff;
+		}
+
+		.edgePath {
+		    stroke: #333;
+		    stroke-width: 1.5px;
+		    fill: none;
+		}
 	</style>
 </head>
 <body>
+<div id="editor"></div>
+<div id="view"><svg width="500" height="500"><g transform="translate(20,20)"/></svg></div>
 <script>
 	require(['config'], function(config)
 	{
@@ -16,7 +59,9 @@
 		require(['main'], function(LiveDOT)
 		{
 			var v = new LiveDOT();
-			v.init(document.getElementById('body'));
+			var editor = document.getElementById('editor');
+			var view = document.getElementById('view');
+			v.init(editor, view);
 		});
 	});
 </script>
